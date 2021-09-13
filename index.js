@@ -62,9 +62,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(points){
-  let points = Math.floor(Math.random * 2)
-  return points
+function inning(){
+  return Math.floor(Math.random() * Math.floor(3))
 }
 
 
@@ -82,7 +81,7 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning){
   /*Code Here*/
 }
 
