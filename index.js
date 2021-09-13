@@ -149,31 +149,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScore, inningcb, innings) {
+function scoreboard(inningScorecb, inningcb, innings) {
+  const inningScore = [];
+  
   let homeScore = 0;
   let awayScore = 0;
 
   for (let i = 0; i < innings; i++){
-    homeScore = homeScore + inningcb();
-    awayScore = awayScore + inningcb();
+    const currentInning = inningScorecb(inningcb);
+    homeScore = homeScore + currentInning.Home
+    awayScore = awayScore + currentInning.Away
+    inningScore.push(`Inning ${i + 1}: Away ${currentInning.Away} - Home ${currentInning.Home}`)
   }
   if (homeScore === awayScore){
-    return `Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    Inning ${i}: Away ${awayScore} - Home ${homeScore},
-    This game will require extra innings: Away ${awayScore} - Home ${homeScore}`
+  inningScore.push(`This game will require extra innings: Away ${awayScore.Away} - Home ${homeScore.Home}`)
   }
-  return {
-    Home: homeScore,
-    Away: awayScore
-  }
+  else{
+  inningScore.push(`Final Score: Away ${awayScore} - Home ${homeScore}`)
 }
+return inningScore;
+}
+
 
 
 
