@@ -157,6 +157,18 @@ function scoreboard(getInningScore, inningcb, innings) {
     homeScore = homeScore + inningcb();
     awayScore = awayScore + inningcb();
   }
+  if (homeScore === awayScore){
+    return `Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    Inning ${i}: Away ${awayScore} - Home ${homeScore},
+    This game will require extra innings: Away ${awayScore} - Home ${homeScore}`
+  }
   return {
     Home: homeScore,
     Away: awayScore
